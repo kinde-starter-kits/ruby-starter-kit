@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>KindeExampleApp</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+
+  <%= stylesheet_link_tag "application" %>
+  <%= javascript_tag %>
+</head>
+
+<body>
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-start">
+      <a class="navbar-item" href="/">Home</a>
+    </div>
+
+    <div class="navbar-end">
+      <div class="navbar-item">
+        <div class="buttons">
+          <% if logged_in? %>
+            <a class="button is-primary" href="<%= logout_path %>">
+              <strong>Logout</strong>
+            </a>
+          <% else %>
+            <a class="button is-primary" href="<%= auth_path %>">
+              <strong>Log in</strong>
+            </a>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+<section class="section">
+  <div class="content">
+    <%= yield %>
+  </div>
+</section>
+</body>
+</html>
