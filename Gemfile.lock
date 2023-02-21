@@ -1,6 +1,6 @@
 GIT
   remote: git@github.com:kinde-oss/kinde-ruby-sdk.git
-  revision: 115fa647b7984086f10c898f4ac9371d04a832e0
+  revision: d19309d881a040b77d3e8ba6a68d25b7ceb87ef8
   specs:
     kinde_api (1.0.0)
       oauth2 (~> 2.0)
@@ -98,7 +98,7 @@ GEM
     hashie (5.0.0)
     i18n (1.12.0)
       concurrent-ruby (~> 1.0)
-    jwt (2.6.0)
+    jwt (2.7.0)
     loofah (2.19.1)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
