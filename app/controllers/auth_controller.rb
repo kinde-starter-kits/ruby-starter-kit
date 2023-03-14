@@ -18,7 +18,7 @@ class AuthController < ApplicationController
   end
 
   def logout
-    KindeApi.logout(session[:kinde_auth][:access_token])
+    KindeApi.logout(session[:kinde_auth]["access_token"])
     reset_session
     redirect_to root_path
   end
