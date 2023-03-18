@@ -17,3 +17,7 @@ gem "puma", "~> 5.0"
 gem "bulma-rails"
 
 gem 'kinde_api', git: 'git@github.com:kinde-oss/kinde-ruby-sdk.git'
+
+gem "importmap-rails", "~> 1.1"
+
+gem 'redis'

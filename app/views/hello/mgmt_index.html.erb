@@ -1,0 +1,23 @@
+<% if mgmt_token_alive? %>
+  Logged into management API through M2M application
+  <br>
+  <br>
+  <h2>Organizations</h2>
+  <div>
+    <% @client.organizations.get_orgainzations.organizations.each do |org| %>
+      <p><%= print_organization(org) %></p>
+    <% end %>
+  </div>
+  <h2>Create new</h2>
+  <div>
+    <%= form_with url: "/mgmt_create_organization", method: :post do |form| %>
+      <%= form.label :name, "Name:" %>
+      <%= form.text_field :name %>
+      <%= form.submit "Create" %>
+    <% end %>
+  </div>
+<% else %>
+  <a class="button is-primary" href="<%= client_credentials_auth_path %>">
+    <strong>Log in M2M</strong>
+  </a>
+<% end %>

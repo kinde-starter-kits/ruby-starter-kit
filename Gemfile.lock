@@ -1,8 +1,9 @@
 GIT
   remote: git@github.com:kinde-oss/kinde-ruby-sdk.git
-  revision: 3723ef265475ffa1563234c61964eae8a9edba5b
+  revision: 922e9bed2d19d81fd4d55633747bd79c3f1e31bb
   specs:
     kinde_api (1.0.0)
+      faraday-follow_redirects
       oauth2 (~> 2.0)
       pkce_challenge
       typhoeus (~> 1.0, >= 1.0.1)
@@ -79,6 +80,7 @@ GEM
     bulma-rails (0.9.4)
       sassc (~> 2.0)
     concurrent-ruby (1.1.10)
+    connection_pool (2.3.0)
     crass (1.0.6)
     date (3.3.3)
     dotenv (2.8.1)
@@ -91,6 +93,8 @@ GEM
     faraday (2.7.4)
       faraday-net_http (>= 2.0, < 3.1)
       ruby2_keywords (>= 0.0.4)
+    faraday-follow_redirects (0.3.0)
+      faraday (>= 1, < 3)
     faraday-net_http (3.0.2)
     ffi (1.15.5)
     globalid (1.0.0)
@@ -98,6 +102,9 @@ GEM
     hashie (5.0.0)
     i18n (1.12.0)
       concurrent-ruby (~> 1.0)
+    importmap-rails (1.1.5)
+      actionpack (>= 6.0.0)
+      railties (>= 6.0.0)
     jwt (2.7.0)
     loofah (2.19.1)
       crass (~> 1.0.2)
@@ -135,7 +142,7 @@ GEM
     puma (5.6.5)
       nio4r (~> 2.0)
     racc (1.6.2)
-    rack (2.2.6.3)
+    rack (2.2.6.4)
     rack-test (2.0.2)
       rack (>= 1.3)
     rails (7.0.4)
@@ -165,6 +172,10 @@ GEM
       thor (~> 1.0)
       zeitwerk (~> 2.5)
     rake (13.0.6)
+    redis (5.0.6)
+      redis-client (>= 0.9.0)
+    redis-client (0.14.0)
+      connection_pool
     ruby2_keywords (0.0.5)
     sassc (2.4.0)
       ffi (~> 1.9)
@@ -184,7 +195,7 @@ GEM
       ethon (>= 0.9.0)
     tzinfo (2.0.5)
       concurrent-ruby (~> 1.0)
-    version_gem (1.1.1)
+    version_gem (1.1.2)
     websocket-driver (0.7.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
@@ -196,9 +207,11 @@ PLATFORMS
 DEPENDENCIES
   bulma-rails
   dotenv-rails
+  importmap-rails (~> 1.1)
   kinde_api!
   puma (~> 5.0)
   rails (~> 7.0.4)
+  redis
   sprockets-rails
 
 RUBY VERSION
