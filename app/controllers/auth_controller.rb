@@ -1,7 +1,7 @@
 class AuthController < ApplicationController
   def auth
     auth = KindeApi.auth_url
-    session[:code_verifier] = auth[:code_verifier]
+    session[:code_verifier] = auth[:code_verifier] if auth[:code_verifier].present?
     redirect_to auth[:url], allow_other_host: true
   end
 
@@ -15,6 +15,16 @@ class AuthController < ApplicationController
     session[:kinde_user] = user_profile.to_hash
 
     redirect_to root_path
+  end
+
+  def client_credentials_auth
+    result = KindeApi.client_credentials_access(
+      client_id: ENV["KINDE_MANAGEMENT_CLIENT_ID"],
+      client_secret: ENV["KINDE_MANAGEMENT_CLIENT_SECRET"]
+    )
+    $redis.set("kinde_m2m_token", result["access_token"], ex: result["expires_in"].to_i)
+
+    redirect_to mgmt_path
   end
 
   def logout
