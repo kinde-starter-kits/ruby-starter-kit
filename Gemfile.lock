@@ -1,6 +1,6 @@
 GIT
   remote: git@github.com:kinde-oss/kinde-ruby-sdk.git
-  revision: 922e9bed2d19d81fd4d55633747bd79c3f1e31bb
+  revision: caf2d7d450c2d4d58b1ec5b1fdff034e7f31770c
   specs:
     kinde_api (1.0.0)
       faraday-follow_redirects

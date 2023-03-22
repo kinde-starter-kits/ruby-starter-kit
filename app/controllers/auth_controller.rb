@@ -8,7 +8,7 @@ class AuthController < ApplicationController
   def callback
     session[:kinde_auth] =
       KindeApi
-        .fetch_tokens(params["code"], session[:code_verifier])
+        .fetch_tokens(params["code"], KindeApi.config.pkce_enabled ? session[:code_verifier] : nil)
         .slice(:access_token, :refresh_token, :expires_at)
 
     user_profile = KindeApi.client(session[:kinde_auth]["access_token"]).oauth.get_user

@@ -8,6 +8,7 @@ class HelloController < ApplicationController
   end
 
   def create_organization
+    # might be `@client.organizations.create_organization(create_organization_request: {name: "new_org"})` as well
     @client.organizations.create_organization(create_organization_request: KindeSdk::CreateOrganizationRequest.new(name: params[:name]))
 
     redirect_to mgmt_path

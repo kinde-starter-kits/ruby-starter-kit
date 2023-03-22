@@ -6,4 +6,5 @@ KindeApi.configure do |c|
   c.logout_url = ENV["KINDE_LOGOUT_URL"]
   c.logger = Rails.logger
   c.debugging = true
+  c.pkce_enabled = true
 end
