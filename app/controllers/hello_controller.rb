@@ -17,6 +17,7 @@ class HelloController < ApplicationController
   private
 
   def init_mgmt_client
-    @client = KindeApi.client($redis.get("kinde_m2m_token"))
+    token = $redis.get("kinde_m2m_token")
+    @client = KindeApi.client(token) if token.present?
   end
 end
