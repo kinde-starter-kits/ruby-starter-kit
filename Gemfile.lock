@@ -1,8 +1,9 @@
 GIT
   remote: git@github.com:kinde-oss/kinde-ruby-sdk.git
-  revision: 23159aec8ec327b0b6933bc5c4c454c67f995780
+  revision: f5ad2673ae5bbf51de44473d851b1ffc1cf00301
+  branch: gem_rename
   specs:
-    kinde_api (1.0.0)
+    kinde_sdk (1.0.0)
       faraday-follow_redirects
       oauth2 (~> 2.0)
       pkce_challenge
@@ -208,7 +209,7 @@ DEPENDENCIES
   bulma-rails
   dotenv-rails
   importmap-rails (~> 1.1)
-  kinde_api!
+  kinde_sdk!
   puma (~> 5.0)
   rails (~> 7.0.4)
   redis

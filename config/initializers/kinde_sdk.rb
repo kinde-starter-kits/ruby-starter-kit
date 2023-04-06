@@ -1,4 +1,4 @@
-KindeApi.configure do |c|
+KindeSdk.configure do |c|
   c.domain = ENV["KINDE_DOMAIN"]
   c.client_id = ENV["KINDE_CLIENT_ID"]
   c.client_secret = ENV["KINDE_CLIENT_SECRET"]
