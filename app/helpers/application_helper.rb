@@ -1,6 +1,6 @@
 module ApplicationHelper
   def logged_in?
-    session[:kinde_auth].present? && !KindeApi.token_expired?(session[:kinde_auth])
+    session[:kinde_auth].present? && !KindeSdk.token_expired?(session[:kinde_auth])
   end
 
   def mgmt_token_alive?

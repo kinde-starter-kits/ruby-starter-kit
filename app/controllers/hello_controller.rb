@@ -9,7 +9,7 @@ class HelloController < ApplicationController
 
   def create_organization
     # might be `@client.organizations.create_organization(create_organization_request: {name: "new_org"})` as well
-    @client.organizations.create_organization(create_organization_request: KindeSdk::CreateOrganizationRequest.new(name: params[:name]))
+    @client.organizations.create_organization(create_organization_request: KindeApi::CreateOrganizationRequest.new(name: params[:name]))
 
     redirect_to mgmt_path
   end
@@ -18,6 +18,6 @@ class HelloController < ApplicationController
 
   def init_mgmt_client
     token = $redis.get("kinde_m2m_token")
-    @client = KindeApi.client(token) if token.present?
+    @client = KindeSdk.client(token) if token.present?
   end
 end

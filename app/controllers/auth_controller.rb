@@ -1,24 +1,24 @@
 class AuthController < ApplicationController
   def auth
-    auth = KindeApi.auth_url
+    auth = KindeSdk.auth_url
     session[:code_verifier] = auth[:code_verifier] if auth[:code_verifier].present?
     redirect_to auth[:url], allow_other_host: true
   end
 
   def callback
     session[:kinde_auth] =
-      KindeApi
-        .fetch_tokens(params["code"], KindeApi.config.pkce_enabled ? session[:code_verifier] : nil)
+      KindeSdk
+        .fetch_tokens(params["code"], KindeSdk.config.pkce_enabled ? session[:code_verifier] : nil)
         .slice(:access_token, :refresh_token, :expires_at)
 
-    user_profile = KindeApi.client(session[:kinde_auth]["access_token"]).oauth.get_user
+    user_profile = KindeSdk.client(session[:kinde_auth]["access_token"]).oauth.get_user
     session[:kinde_user] = user_profile.to_hash
 
     redirect_to root_path
   end
 
   def client_credentials_auth
-    result = KindeApi.client_credentials_access(
+    result = KindeSdk.client_credentials_access(
       client_id: ENV["KINDE_MANAGEMENT_CLIENT_ID"],
       client_secret: ENV["KINDE_MANAGEMENT_CLIENT_SECRET"]
     )
@@ -28,7 +28,7 @@ class AuthController < ApplicationController
   end
 
   def logout
-    KindeApi.logout(session[:kinde_auth]["access_token"])
+    KindeSdk.logout(session[:kinde_auth]["access_token"])
     reset_session
     redirect_to root_path
   end
