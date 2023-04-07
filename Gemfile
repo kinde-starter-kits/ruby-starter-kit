@@ -21,3 +21,7 @@ gem 'kinde_sdk'
 gem "importmap-rails", "~> 1.1"
 
 gem 'redis'
+
+group :test do
+  gem 'rspec'
+end
