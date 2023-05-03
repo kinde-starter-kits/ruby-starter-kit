@@ -28,12 +28,12 @@ class AuthController < ApplicationController
   end
 
   def logout
-    KindeSdk.logout(session[:kinde_auth]["access_token"])
-    reset_session
-    redirect_to root_path
+    redirect_to KindeSdk.logout_url, allow_other_host: true
   end
 
   def logout_callback
     Rails.logger.info("logout callback successfully received")
+    reset_session
+    redirect_to root_path
   end
 end
