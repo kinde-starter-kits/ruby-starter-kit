@@ -97,7 +97,7 @@ GEM
       actionpack (>= 6.0.0)
       railties (>= 6.0.0)
     jwt (2.7.0)
-    kinde_sdk (1.1.0)
+    kinde_sdk (1.1.1)
       faraday-follow_redirects
       oauth2 (~> 2.0)
       pkce_challenge
@@ -220,7 +220,7 @@ DEPENDENCIES
   bulma-rails
   dotenv-rails
   importmap-rails (~> 1.1)
-  kinde_sdk (~> 1.1.0)
+  kinde_sdk (~> 1.1.1)
   puma (~> 5.0)
   rails (~> 7.0.4)
   redis
