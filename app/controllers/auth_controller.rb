@@ -8,10 +8,10 @@ class AuthController < ApplicationController
   def callback
     session[:kinde_auth] =
       KindeSdk
-        .fetch_tokens(params["code"], KindeSdk.config.pkce_enabled ? session[:code_verifier] : nil)
+        .fetch_tokens(params["code"], code_verifier: KindeSdk.config.pkce_enabled ? session[:code_verifier] : nil)
         .slice(:access_token, :refresh_token, :expires_at)
 
-    user_profile = KindeSdk.client(session[:kinde_auth]["access_token"]).oauth.get_user
+    user_profile = KindeSdk.client(session[:kinde_auth]).oauth.get_user
     session[:kinde_user] = user_profile.to_hash
 
     redirect_to root_path
@@ -22,6 +22,8 @@ class AuthController < ApplicationController
       client_id: ENV["KINDE_MANAGEMENT_CLIENT_ID"],
       client_secret: ENV["KINDE_MANAGEMENT_CLIENT_SECRET"]
     )
+    raise result if result["error"].present?
+
     $redis.set("kinde_m2m_token", result["access_token"], ex: result["expires_in"].to_i)
 
     redirect_to mgmt_path

@@ -13,7 +13,16 @@ module ApplicationHelper
     str
   end
 
+  def print_user(user)
+    "#{user.email.presence || "---"} (#{user.first_name} #{user.last_name})"
+  end
+
   def kinde_account_full_name
     [session[:kinde_user]["first_name"], session[:kinde_user]["last_name"]].join(" ")
+  end
+
+  def notification_class(key)
+    return "is-warning" if key == "notice"
+    "is-danger" if key == "alert"
   end
 end

@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   get "mgmt" => "hello#mgmt_index"
   post "mgmt_create_organization" => "hello#create_organization"
+  post "mgmt_create_user" => "hello#create_user"
 
   get "callback" => "auth#callback"
   get "auth" => "auth#auth"
