@@ -11,12 +11,6 @@ rails s
 ```
 The only external dependency you'll need is redis, here is the [installation guide](https://redis.io/docs/getting-started/installation/install-redis-on-linux/).
 
-Basically, all the main logic lays in several files:
-- initializer for the api gem 
-- `auth_controller` which is handling all the auth logic
-- `hello_controller` which is handling client logic.
-Some logic performed inside views, but please, be sure you are splitting and organizing your codebase more correct in a 
-real work: different controllers, interactors, service classes, calling interactors instead of keeping all the logic in a controller or view etc.
 Here is just an example of basic usage of gem and not the real guide to code organization.
 
 The [initializer](https://github.com/kinde-starter-kits/ruby-starter-kit/blob/main/config/initializers/kinde_api.rb)
