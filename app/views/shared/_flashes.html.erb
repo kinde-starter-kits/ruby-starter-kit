@@ -1,3 +1,7 @@
-<% flash.each do |key, message| %>
-  <div class="notification <%= notification_class(key) %>"><%= message %></div>
+<% flash.each do |name, msg| %>
+  <div class="preview">
+    <div class="alert alert-<%= name == "notice" ? "success" : "danger" %> alert-dismissable fade in">
+      <%= msg %>
+    </div>
+  </div>
 <% end %>

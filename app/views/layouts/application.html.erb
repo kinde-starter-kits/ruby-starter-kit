@@ -11,36 +11,9 @@
 </head>
 
 <body>
-<nav class="navbar is-primary" role="navigation" aria-label="main navigation">
-  <div id="navbarBasicExample" class="navbar-menu">
-    <div class="navbar-start">
-      <a class="navbar-item" href="/">Home</a>
-      <a class="navbar-item" href="/mgmt">Management API</a>
-    </div>
-
-    <div class="navbar-end">
-      <div class="navbar-item">
-        <div class="buttons">
-          <% if logged_in? %>
-            <a class="button is-primary" href="<%= logout_path %>">
-              <strong>Logout</strong>
-            </a>
-          <% else %>
-            <a class="button is-primary" href="<%= auth_path %>">
-              <strong>Log in</strong>
-            </a>
-          <% end %>
-        </div>
-      </div>
-    </div>
-  </div>
-</nav>
-<section class="section">
   <%= render 'shared/flashes' %>
-
-  <div class="content">
-    <%= yield %>
-  </div>
-</section>
+  <%= render 'layouts/header'%>
+  <%= yield %>
+  <%= render 'layouts/footer'%>
 </body>
 </html>
