@@ -1,0 +1,70 @@
+<main>
+  <div class="container">
+    <div class="card hero" data-controller="playgrounds">
+
+<form method="post" enctype="multipart/form-data">
+                    <div class="d-flex flex-col items-start mb-1">
+                        <div>
+                            <label for="">Get Flag</label>
+                            <label for=""> - Type</label>
+                            <select name="flag_type" id="flag_type" data-playgrounds-target="flagType">
+                                <option value="s">String</option>
+                                <option value="i">Integer</option>
+                                <option value="b">Boolean</option>
+                            </select>
+                        </div>
+                        <div>
+                            <div style="display: grid;grid-template-columns: 1fr 1fr 60px;gap: 10px;">
+                                <input class="w-100 input" type="text" placeholder="Fill the flag" name="flag_input" data-playgrounds-target="flagInput" required>
+                                <input class="w-100 input" type="text" name="flag_input_default" placeholder="Fill the default value" data-playgrounds-target="flagInputDefault" required>
+                                <button class="btn btn-light" data-action="click->playgrounds#getFlag" data-playgrounds-target="playgrounds.flag" type="button">Get</button>
+                            </div>
+                        </div>
+                        <div data-playgrounds-target="flagText"></div>
+                    </div>
+                    <div class="d-flex flex-col items-start mb-1">
+                        <label for="">Get Boolean Flag</label>
+
+                        <div>
+                            <div style="display: grid;grid-template-columns: 1fr 1fr 60px;gap: 10px;">
+                                <input class="w-100 input" type="text" name="flag_boolean_input" placeholder="Fill the flag" data-playgrounds-target="flagBooleanInput" required>
+                                <input class="w-100 input" type="text" name="flag_boolean_input_default" placeholder="Fill the default value" data-playgrounds-target="flagBooleanInputDefault" required>
+                                <button class="btn btn-light" data-action="click->playgrounds#getBooleanFlag" data-playgrounds-target="flagBoolean" type="button">Get</button>
+
+                            </div>
+                        </div>
+                        <div data-playgrounds-target="flagBooleanText"></div>
+                    </div>
+                    <div class="d-flex flex-col items-start mb-1">
+                        <label for="">Get Integer Flag</label>
+
+                        <div>
+                            <div style="display: grid;grid-template-columns: 1fr 1fr 60px;gap: 10px;">
+                                <input class="w-100 input" type="text" name="flag_integer_input" data-playgrounds-target="flagIntegerInput" placeholder="Fill the flag" required>
+                                <input class="w-100 input" type="text" name="flag_integer_input_default" placeholder="Fill the default value" data-playgrounds-target="flagIntegerInputDefault" required>
+                                <button class="btn btn-light" data-action="click->playgrounds#getIntegerFlag" data-playgrounds-target="flagInteger" type="button">Get</button>
+                            </div>
+                        </div>
+                        <div data-playgrounds-target="flagIntegerText"></div>
+                    </div>
+                    <div class="d-flex flex-col items-start mb-1">
+                        <label for="">Get String Flag</label>
+
+                        <div>
+                            <div style="display: grid;grid-template-columns: 1fr 1fr 60px;gap: 10px;">
+                                <input class="w-100 input" type="text" name="flag_string_input" data-playgrounds-target="flagStringInput" placeholder="Fill the flag" required>
+                                <input class="w-100 input" type="text" name="flag_string_input_default" placeholder="Fill the default value" data-playgrounds-target="flagStringInputDefault" required>
+                                <button class="btn btn-light" data-action="click->playgrounds#getStringFlag" data-playgrounds-target="flagString" type="button">Get</button>
+
+                            </div>
+                        </div>
+                        <div data-playgrounds-target="flagStringText"></div>
+                    </div>
+                </form>
+                    
+    </div>
+  </div>
+</main>
+
+
+

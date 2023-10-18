@@ -21,6 +21,22 @@ module ApplicationHelper
     [session[:kinde_user]["first_name"], session[:kinde_user]["last_name"]].join(" ")
   end
 
+  def first_name
+    session[:kinde_user]["first_name"]
+  end
+
+  def last_name
+    session[:kinde_user]["last_name"]
+  end
+
+  def user_status(user)
+    user["created"] ? 'Created' : 'Existed'
+  end
+
+  def user_id(user)
+    user["id"] if user["id"].present?
+  end
+
   def notification_class(key)
     return "is-warning" if key == "notice"
     "is-danger" if key == "alert"

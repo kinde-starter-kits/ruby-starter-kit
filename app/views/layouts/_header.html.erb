@@ -1,0 +1,27 @@
+<header>
+  <nav class="nav container">
+    <h1 class="text-display-3">KindeAuth</h1>
+    <% if !logged_in? %>
+      <div>
+        <a class="btn btn-ghost sign-in-btn" href="<%= auth_path %>">Sign in</a><a class="btn btn-dark" href="<%= sign_up_path %>">Sign up</a>
+      </div>
+    <% elsif current_page?(root_path) %>
+      <div class="header-group">
+      <% if mgmt_token_alive? %>
+        <a class="btn btn-dark" href="<%= playgrounds_path %>" type="button">Flag Playground</a>
+        <a class="btn btn-dark" href="<%= new_user_path %>" type="button">Create user</a>
+      <% else %>
+        <a class="btn btn-dark" href="<%= client_credentials_auth_path %>" type="button">Log in M2M</a>
+      <% end %>
+        <div class="avatar"> 
+          <%= first_name[0] %>
+          <%= last_name[0] %>
+        </div>
+        <p class="username">
+          <%= kinde_account_full_name %>
+        </p>
+        <a class="btn btn-dark" href="<%= logout_path %>" type="button">Logout</a>
+      </div>
+    <% end %>
+  </nav>
+</header>

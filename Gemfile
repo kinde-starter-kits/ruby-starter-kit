@@ -18,6 +18,8 @@ gem "bulma-rails"
 
 gem "kinde_sdk"
 
+gem 'stimulus-rails'
+
 gem "importmap-rails", "~> 1.1"
 
 gem 'redis'

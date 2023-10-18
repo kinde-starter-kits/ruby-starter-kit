@@ -1,6 +1,7 @@
 class HelloController < ApplicationController
-  before_action :init_mgmt_client, only: [:mgmt_index, :create_organization, :create_user]
-
+  before_action :init_mgmt_client, only: [:mgmt_index, :create_organization]
+  skip_before_action :authenticate_user!, only: [:index]
+  
   CLIENT_UNDEFINED_ALERT = "Please, log in before any actions"
 
   def index
@@ -19,18 +20,6 @@ class HelloController < ApplicationController
     end
   end
 
-  def create_user
-    params = create_user_params
-    wrap_with_mgmt_client_checking do
-      @client.users.create_user(
-        create_user_request: {
-          profile: { given_name: params[:name], family_name: params[:surname] },
-          identities: [{ type: "email", details: { email: params[:email] } }]
-        }
-      )
-    end
-  end
-
   private
 
   def wrap_with_mgmt_client_checking
@@ -40,15 +29,6 @@ class HelloController < ApplicationController
     else
       redirect_to mgmt_path, alert: CLIENT_UNDEFINED_ALERT
     end
-  end
-
-  def init_mgmt_client
-    token = $redis.get("kinde_m2m_token")
-    @client = KindeSdk.client({ "access_token" => token }) if token.present?
-  end
-
-  def create_user_params
-    params.permit(:name, :surname, :email)
   end
 
   def create_organization_params
