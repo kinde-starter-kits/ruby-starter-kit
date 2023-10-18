@@ -1,4 +1,6 @@
 class AuthController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:callback, :sign_up, :auth, :logout]
+
   def auth
     auth = KindeSdk.auth_url
     session[:code_verifier] = auth[:code_verifier] if auth[:code_verifier].present?

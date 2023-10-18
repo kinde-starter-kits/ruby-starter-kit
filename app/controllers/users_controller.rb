@@ -2,6 +2,7 @@ class UsersController < ApplicationController
     before_action :init_mgmt_client, only: [:create]
 
     KINDE_ERROR = "Error from Kinde"
+    USER_CREATED = "User created successfully"
     
     def new
     end
@@ -14,8 +15,9 @@ class UsersController < ApplicationController
       begin
         create_user
         redirect_to show_user_users_path(user: @user.to_json)
+        flash[:notice] = USER_CREATED
       rescue => e
-        flash[:error] = "#{KINDE_ERROR}-#{e}"
+        flash[:error] = KINDE_ERROR
         render new_user_path
       end
     end
