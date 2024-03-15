@@ -20,7 +20,7 @@ real work: different controllers, interactors, service classes, calling interact
 Here is just an example of basic usage of gem and not the real guide to code organization.
 
 The [initializer](https://github.com/kinde-starter-kits/ruby-starter-kit/blob/main/config/initializers/kinde_api.rb)
-contains setup code. It uses environment variables - you need to set in the
+contains setup code. Rename the `.env.sample` file to `.env`. The initializer uses environment variables - you need to set in the
 [.env file](https://github.com/kinde-starter-kits/ruby-starter-kit/blob/main/.env)
 at least `KINDE_DOMAIN`, `KINDE_CLIENT_ID` and `KINDE_CLIENT_SECRET` to your real credentials to make it work.
 `KINDE_MANAGEMENT_CLIENT_ID` and `KINDE_MANAGEMENT_CLIENT_SECRET` should be configured as well if you are going to use 
