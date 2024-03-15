@@ -28,5 +28,4 @@
 .env.*.local
 
 .idea/
-
-.env
+/.env
