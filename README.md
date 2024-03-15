@@ -1,15 +1,15 @@
 # README
 
-The application represents simple rails app with [kinde-ruby-sdk](https://github.com/kinde-oss/kinde-ruby-sdk) gem usage.
-For more details on how to work with the gem please refer to gem's homepage.
+The application represents a simple Rails app with the [kinde-ruby-sdk](https://github.com/kinde-oss/kinde-ruby-sdk) gem usage.
+For more details on how to work with the gem, please refer to the gem's homepage.
 Here are some notes on implementation.
 
-Installation and running just as simple as:
+Installation and running are just as simple as:
 ```
 bundle
 rails s
 ```
-The only external dependency you'll need is redis, here is the [installation guide](https://redis.io/docs/getting-started/installation/install-redis-on-linux/).
+The only external dependency you'll need is Redis, here is the [installation guide](https://redis.io/docs/getting-started/installation/install-redis-on-linux/).
 
 Basically, all the main logic lays in several files:
 - initializer for the api gem 
@@ -20,7 +20,7 @@ real work: different controllers, interactors, service classes, calling interact
 Here is just an example of basic usage of gem and not the real guide to code organization.
 
 The [initializer](https://github.com/kinde-starter-kits/ruby-starter-kit/blob/main/config/initializers/kinde_api.rb)
-contains setup code. It uses environment variables - you need to set in the
+contains setup code. Rename the `.env.sample` file to `.env`. The initializer uses environment variables - you need to set in the
 [.env file](https://github.com/kinde-starter-kits/ruby-starter-kit/blob/main/.env)
 at least `KINDE_DOMAIN`, `KINDE_CLIENT_ID` and `KINDE_CLIENT_SECRET` to your real credentials to make it work.
 `KINDE_MANAGEMENT_CLIENT_ID` and `KINDE_MANAGEMENT_CLIENT_SECRET` should be configured as well if you are going to use 
