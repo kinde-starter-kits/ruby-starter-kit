@@ -1,15 +1,15 @@
 # README
 
-The application represents simple rails app with [kinde-ruby-sdk](https://github.com/kinde-oss/kinde-ruby-sdk) gem usage.
-For more details on how to work with the gem please refer to gem's homepage.
+The application represents a simple Rails app with the [kinde-ruby-sdk](https://github.com/kinde-oss/kinde-ruby-sdk) gem usage.
+For more details on how to work with the gem, please refer to the gem's homepage.
 Here are some notes on implementation.
 
-Installation and running just as simple as:
+Installation and running are just as simple as:
 ```
 bundle
 rails s
 ```
-The only external dependency you'll need is redis, here is the [installation guide](https://redis.io/docs/getting-started/installation/install-redis-on-linux/).
+The only external dependency you'll need is Redis, here is the [installation guide](https://redis.io/docs/getting-started/installation/install-redis-on-linux/).
 
 Basically, all the main logic lays in several files:
 - initializer for the api gem 
