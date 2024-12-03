@@ -22,6 +22,8 @@ gem "importmap-rails", "~> 1.1"
 
 gem 'redis'
 
+gem 'sassc-rails'
+
 group :test do
   gem 'rspec'
 end
