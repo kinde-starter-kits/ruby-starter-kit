@@ -11,10 +11,9 @@ class HelloController < ApplicationController
 
   def create_organization
     params = create_organization_params
-    # might be `@client.organizations.create_organization(create_organization_request: {name: "new_org"})` as well
     wrap_with_mgmt_client_checking do
       @client.organizations.create_organization(
-        create_organization_request: KindeApi::CreateOrganizationRequest.new(name: params[:name])
+        name: params[:name]
       )
     end
   end
