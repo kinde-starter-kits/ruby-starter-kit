@@ -22,11 +22,11 @@
       <div class="navbar-item">
         <div class="buttons">
           <% if logged_in? %>
-            <a class="button is-primary" href="<%= logout_path %>">
+            <a class="button is-primary" href="<%= kinde_sdk_logout_path %>">
               <strong>Logout</strong>
             </a>
           <% else %>
-            <a class="button is-primary" href="<%= auth_path %>">
+            <a class="button is-primary" href="<%= kinde_sdk_auth_path %>">
               <strong>Log in</strong>
             </a>
           <% end %>
