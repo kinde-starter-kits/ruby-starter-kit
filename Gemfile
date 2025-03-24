@@ -14,8 +14,7 @@ gem "sprockets-rails"
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
 
-gem "dartsass-rails", "~> 0.5.0"
-gem "bulma-rails", "~> 1.0.1"
+gem "bulma-rails"
 
 gem "kinde_sdk", "~> 1.4.0"
 
