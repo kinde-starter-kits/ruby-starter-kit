@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "3.1.2"
+ruby "3.1.4"
 
 gem 'dotenv-rails'
 
@@ -16,7 +16,7 @@ gem "puma", "~> 5.0"
 
 gem "bulma-rails"
 
-gem "kinde_sdk", "~> 1.2.3"
+gem "kinde_sdk", "~> 1.4.0"
 
 gem "importmap-rails", "~> 1.1"
 
@@ -25,3 +25,4 @@ gem 'redis'
 group :test do
   gem 'rspec'
 end
+
