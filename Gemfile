@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "3.4.0.dev"
+ruby "3.4.2"
 
 gem 'dotenv-rails'
 
@@ -20,7 +20,7 @@ gem "puma", "~> 5.0"
 
 gem "bulma-rails"
 
-gem "kinde_sdk", "~> 1.4.0"
+gem "kinde_sdk", "~> 1.5.0"
 
 gem "importmap-rails", "~> 1.1"
 
