@@ -8,11 +8,5 @@ Rails.application.routes.draw do
   post "mgmt_create_organization" => "hello#create_organization"
   post "mgmt_create_user" => "hello#create_user"
 
-  namespace :kinde_sdk do
-    get "callback" => "auth#callback"
-    get "auth" => "auth#auth"
-    get "logout" => "auth#logout"
-    get "logout_callback" => "auth#logout_callback"
-    get "client_credentials_auth" => "auth#client_credentials_auth"
-  end
+  mount KindeSdk::Engine, at: "/kinde_sdk"
 end

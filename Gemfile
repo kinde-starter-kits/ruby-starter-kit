@@ -20,7 +20,7 @@ gem "puma", "~> 5.0"
 
 gem "bulma-rails"
 
-gem "kinde_sdk", "~> 1.5.0"
+gem "kinde_sdk", "~> 1.6.1"
 
 gem "importmap-rails", "~> 1.1"
 
