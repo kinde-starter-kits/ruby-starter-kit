@@ -32,6 +32,17 @@ module KindeExampleApp
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
 
+    # Configure Redis as the default store
+    #config.cache_store = :redis_cache_store, { url: ENV.fetch("REDIS_URL", "redis://localhost:6379/1") }
+
+    # Cookie encryption rotation configuration
+    # Commenting out cookie rotation configuration as it's not needed for the starter kit
+    # If you need to rotate cookie encryption keys, uncomment and use the following:
+    # require 'securerandom'
+    # old_salt = SecureRandom.random_bytes(64)
+    # old_key = ActiveSupport::KeyGenerator.new(Rails.application.secret_key_base).generate_key(old_salt)
+    # config.action_dispatch.encrypted_cookie_rotations = [[old_salt, old_key]]
+
     # Don't generate system test files.
     config.generators.system_tests = nil
   end
