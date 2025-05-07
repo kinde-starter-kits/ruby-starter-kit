@@ -1,7 +1,7 @@
 class HelloController < ApplicationController
   include ApplicationHelper
   before_action :init_mgmt_client, only: [:mgmt_index, :create_organization, :create_user]
-  before_action :check_login
+  #before_action :check_login
 
   CLIENT_UNDEFINED_ALERT = "Please, log in before any actions"
 
@@ -70,9 +70,9 @@ class HelloController < ApplicationController
   end
 
   def check_login
-    if logged_in? && token_expired?
+    unless session_present_in?
       flash[:error] = "Your session has expired"
-      redirect_to "/kinde_sdk/refresh_token"
+      redirect_to "/"
     end
   end
 

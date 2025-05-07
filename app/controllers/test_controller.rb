@@ -1,9 +1,9 @@
 class TestController < ApplicationController
   include ApplicationHelper
-  before_action :check_login
+  #before_action :check_login
 
   def refresh_token
-    return redirect_with_error("No valid session found") unless logged_in?
+    return redirect_with_error("No valid session found") unless session_present_in?
 
     if refresh_session_tokens
       flash[:success] = "Token refreshed successfully! New expiration: #{Time.at(session[:kinde_token_store][:expires_at]).strftime('%Y-%m-%d %H:%M:%S')}"
@@ -16,7 +16,7 @@ class TestController < ApplicationController
   end
 
   def token_expired
-    return redirect_with_error("No valid session found") unless logged_in?
+    return redirect_with_error("No valid session found") unless session_present_in?
 
     expired = token_expired?
     flash[:info] = "Token is #{expired ? 'expired' : 'not expired'}. Expiration time: #{Time.at(get_client.token_store.expires_at).strftime('%Y-%m-%d %H:%M:%S')}"
@@ -26,7 +26,7 @@ class TestController < ApplicationController
   end
 
   def test_client
-    return redirect_with_error("No valid session found") unless logged_in?
+    return redirect_with_error("No valid session found") unless session_present_in?
 
     client = get_client
     flash[:success] = "Client instantiated successfully! Access token: #{client.bearer_token[0..10]}..."
@@ -36,7 +36,7 @@ class TestController < ApplicationController
   end
 
   def get_claim
-    return redirect_with_error("No valid session found") unless logged_in?
+    return redirect_with_error("No valid session found") unless session_present_in?
 
     client = get_client
     claim = params[:claim]
@@ -55,15 +55,9 @@ class TestController < ApplicationController
   private
 
   def check_login
-    unless logged_in?
+    unless session_present_in?
       flash[:error] = "You must be logged in to access this page"
       redirect_to "/"
-      return
-    end
-
-    if token_expired?
-      flash[:error] = "Your session has expired"
-      redirect_to "/kinde_sdk/refresh_token"
     end
   end
 
