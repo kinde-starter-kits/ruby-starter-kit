@@ -1,7 +1,5 @@
 module ApplicationHelper
-  def logged_in?
-    session[:kinde_auth].present? && !KindeSdk.token_expired?(session[:kinde_auth])
-  end
+  include AuthHelper
 
   def mgmt_token_alive?
     $redis.get("kinde_m2m_token").present?
@@ -18,6 +16,7 @@ module ApplicationHelper
   end
 
   def kinde_account_full_name
+    Rails.logger.info("Getting full name from session : #{session[:kinde_user]}")
     [session[:kinde_user]["first_name"], session[:kinde_user]["last_name"]].join(" ")
   end
 
