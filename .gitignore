@@ -13,6 +13,7 @@
 !/log/.keep
 !/tmp/.keep
 
+temp_auto_push.bat
 # Ignore pidfiles, but keep the directory.
 /tmp/pids/*
 !/tmp/pids/
@@ -28,4 +29,4 @@
 .env.*.local
 
 .idea/
-/.env
+/.envbranch_structure.json

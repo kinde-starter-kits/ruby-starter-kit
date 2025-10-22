@@ -1,0 +1,33 @@
+{
+  "default_branch": "main",
+  "branches": [
+    "Update-REAMDE",
+    "add-codeowners",
+    "add-codeowners-1761092102",
+    "chore/codeowners-deps-20251121-1602",
+    "chore/standardize-codeowners",
+    "main",
+    "rai/update-version",
+    "renovate/test"
+  ],
+  "parent": {
+    "Update-REAMDE": "main",
+    "add-codeowners": "main",
+    "add-codeowners-1761092102": "add-codeowners",
+    "chore/codeowners-deps-20251121-1602": "main",
+    "chore/standardize-codeowners": "main",
+    "main": null,
+    "rai/update-version": "main",
+    "renovate/test": "main"
+  },
+  "order": [
+    "main",
+    "Update-REAMDE",
+    "add-codeowners",
+    "chore/codeowners-deps-20251121-1602",
+    "chore/standardize-codeowners",
+    "rai/update-version",
+    "renovate/test",
+    "add-codeowners-1761092102"
+  ]
+}
