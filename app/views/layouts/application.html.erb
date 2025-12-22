@@ -16,6 +16,21 @@
     <div class="navbar-start">
       <a class="navbar-item" href="/">Home</a>
       <a class="navbar-item" href="/mgmt">Management API</a>
+      <% if logged_in? %>
+        <a class="navbar-item" href="/test/refresh_token">Test Refresh Token</a>
+        <a class="navbar-item" href="/test/token_expired">Check Token Expired</a>
+        <a class="navbar-item" href="/test/client">Test Client</a>
+        <div class="navbar-item">
+          <form action="/test/get_claim/" method="get" class="field has-addons">
+            <div class="control">
+              <input class="input" type="text" name="claim" placeholder="Enter claim name">
+            </div>
+            <div class="control">
+              <button class="button is-primary" type="submit">Get Claim</button>
+            </div>
+          </form>
+        </div>
+      <% end %>
     </div>
 
     <div class="navbar-end">
@@ -26,7 +41,7 @@
           <strong>Logout</strong>
         </a>
         <% else %>
-        <a class="button is-primary" href="<%= kinde_sdk.auth_path %>">
+        <a class="button is-primary" href="/kinde_sdk/auth">
           <strong>Log in</strong>
         </a>
         <% end %>
