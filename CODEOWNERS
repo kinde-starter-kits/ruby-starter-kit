@@ -1,2 +1,5 @@
 * @kinde-starter-kits/giants-kinde
-
+Gemfile @kinde-starter-kits/sdk-engineers
+**/Gemfile @kinde-starter-kits/sdk-engineers
+Gemfile.lock @kinde-starter-kits/sdk-engineers
+**/Gemfile.lock @kinde-starter-kits/sdk-engineers
